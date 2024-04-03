@@ -15,6 +15,7 @@ export const load = async (event) => {
 		.select()
 		.from(profileTable)
 		.where(eq(profileTable.user_id, session.user.id));
+		
 	if (profile.length === 0) {
 		throw redirect(301, '/profile');
 	}
