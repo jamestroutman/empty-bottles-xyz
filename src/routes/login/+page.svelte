@@ -22,6 +22,7 @@
 	<div class="space-y-6">
 		<div class="space-y-2">
 			<h1 class="text-3xl font-bold">Login</h1>
+			<a class="ml-auto inline-block text-sm underline" href="/signup"> Need an Account? </a>
 			<p class="text-gray-500 dark:text-gray-400">
 				Enter your email below to login to your account
 			</p>

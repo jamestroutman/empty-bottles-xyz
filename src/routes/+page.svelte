@@ -52,6 +52,12 @@
 						Perfect for those who like to keep things old-school and hands-on. Our Basic plan lets you manually manage your inventory while still enjoying the benefits of our intuitive software.
 					</p>
 					<h3 class="font-bold text-2xl md:text-3xl">$20</h3>
+					<a
+						class="inline-flex h-9 items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white px-4 py-2 text-white text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
+						href="/signup"
+					>
+						Sign up
+					</a>
 				</div>
 			</div>
 			<div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
@@ -61,7 +67,13 @@
 					<p class="text-gray-500 dark:text-gray-400">
 						Upgrade to our fully automated Pro plan and watch your alcohol inventory management worries disappear faster than a bottle of vodka at a frat party. It's the perfect solution for most bars and restaurants looking to streamline their operations and boost their bottom line.
 					</p>
-					<h3 class="font-bold text-2xl md:text-3xl">$20</h3>
+					<h3 class="font-bold text-2xl md:text-3xl">$99</h3>
+					<a
+						class="inline-flex h-9 items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white px-4 py-2 text-white text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
+						href="/signup"
+					>
+						Sign Up
+					</a>
 				</div>
 			</div>
 			<div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
@@ -72,7 +84,13 @@
 						<p class="text-gray-500 dark:text-gray-400">
 							Got multiple locations and custom billing needs? Our Enterprise plan is the top-shelf solution you've been searching for. We'll work with you to tailor our software to your specific requirements, ensuring that every drop of alcohol is accounted for across all your franchises. Cheers to centralized management and effortless scaling!
 						</p>
-						<h3 class="font-bold text-2xl md:text-3xl">$20</h3>
+						<h3 class="font-bold text-2xl md:text-3xl">Contact for Pricing</h3>
+						<a
+						class="inline-flex h-9 items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white px-4 py-2 text-white text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
+						href="/contact-sales"
+					>
+						Contact Sales
+					</a>
 					</div>
 				</div>
 			</div>

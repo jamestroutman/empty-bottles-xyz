@@ -41,6 +41,7 @@
 	<div class="flex flex-col p-6 space-y-1">
 		<h3 class="whitespace-nowrap tracking-tight text-2xl font-bold">Sign up</h3>
 		<p class="text-sm text-muted-foreground">Enter your email below to create an account</p>
+		<a class="ml-auto inline-block text-sm underline" href="/login"> Already have an Account? </a>
 	</div>
 	<div class="p-6">
 		<div class="space-y-4">
