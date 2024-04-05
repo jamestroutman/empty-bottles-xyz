@@ -1,4 +1,5 @@
 <script>
+	import { goto } from '$app/navigation';
 	import { createEventDispatcher } from 'svelte';
 	export let data;
 	
@@ -23,8 +24,9 @@
 			errorMessage = 'An error occurred. Please try again.';
 		}
 	}
+
 	function handleBackToLogin() {
-		dispatch('backToLogin');
+		goto("/login");
 	}
 </script>
 

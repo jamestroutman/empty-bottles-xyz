@@ -44,3 +44,13 @@ https://www.shadcn-svelte.com/docs/components-json
 
 ### Icons
 https://lucide.dev/guide/packages/lucide-svelte
+
+## Data
+You can generate a migration with
+`supabase migration new the_migration_name`
+
+After you have updated your migration with the SQL you can apply your migration with
+`supabase migration up`
+
+Finally you update you generated TS model with
+`supabase gen types typescript --local > "src/lib/server/schema.gen.ts"`

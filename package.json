@@ -36,6 +36,7 @@
 	"dependencies": {
 		"@supabase/auth-helpers-sveltekit": "^0.10.1",
 		"@supabase/supabase-js": "^2.29.0",
+		"@sveltejs/adapter-vercel": "^5.2.0",
 		"@vercel/analytics": "^1.2.2",
 		"@vercel/speed-insights": "^1.0.10",
 		"bits-ui": "^0.21.2",
@@ -46,6 +47,7 @@
 		"postgres": "^3.3.5",
 		"svelte-sonner": "^0.3.21",
 		"tailwind-merge": "^2.2.2",
-		"tailwind-variants": "^0.2.1"
+		"tailwind-variants": "^0.2.1",
+		"type-fest": "^4.15.0"
 	}
 }

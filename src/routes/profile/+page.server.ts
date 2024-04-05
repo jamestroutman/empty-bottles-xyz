@@ -2,6 +2,16 @@ import { db } from '$lib/server/db.js';
 import { profileTable } from '$lib/server/schema.js';
 import { error, redirect } from '@sveltejs/kit';
 
+export const load = async (event) => {
+	const session = await event.locals.getSession();
+	const _supabase = event.locals.supabase;
+	if (!session) {
+		throw redirect(301, '/login');
+	}
+
+	return {};	
+};
+
 export const actions = {
 	create: async (event) => {
 		// get the form body from the event
