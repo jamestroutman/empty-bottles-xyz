@@ -6,7 +6,7 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[]
 
-export interface Database {
+export type Database = {
   graphql_public: {
     Tables: {
       [_ in never]: never
@@ -133,18 +133,22 @@ export interface Database {
       sales_contact_submissions: {
         Row: {
           company_name: string | null
-          contact_status: string | null
+          contact_status:
+            | Database["public"]["Enums"]["sales_contact_status"]
+            | null
           email_address: string | null
           first_name: string | null
           id: number
-          inserted_at: string | null
+          inserted_at: string
           last_name: string | null
           phone_number: string | null
-          updated_at: string | null
+          updated_at: string
         }
         Insert: {
           company_name?: string | null
-          contact_status?: string | null
+          contact_status?:
+            | Database["public"]["Enums"]["sales_contact_status"]
+            | null
           email_address?: string | null
           first_name?: string | null
           id?: number
@@ -155,7 +159,9 @@ export interface Database {
         }
         Update: {
           company_name?: string | null
-          contact_status?: string | null
+          contact_status?:
+            | Database["public"]["Enums"]["sales_contact_status"]
+            | null
           email_address?: string | null
           first_name?: string | null
           id?: number
@@ -174,7 +180,7 @@ export interface Database {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      sales_contact_status: "new" | "contacted" | "closed"
     }
     CompositeTypes: {
       [_ in never]: never

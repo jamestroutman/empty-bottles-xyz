@@ -22,15 +22,6 @@ create table image (
     group_id int references image_group
 );
 
-alter table
-    profile enable row level security;
-
-alter table
-    image_group enable row level security;
-
-alter table
-    image enable row level security;
-
 -- CREATE THE STORAGE BUCKET
 insert into
     storage.buckets (id, name)

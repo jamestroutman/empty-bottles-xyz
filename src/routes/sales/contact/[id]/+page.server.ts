@@ -1,18 +1,19 @@
-import { redirect } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 
 export const load = async (event) => {
 	const session = await event.locals.getSession();
 	const _supabase = event.locals.supabase;
+	const submission_id = event.params.id;
 
 	if (!session) {
 		throw redirect(301, '/auth/login');
 	}
 
-	// check for profile
+	// Load the Submission
 	const profile_result = await _supabase
-		.from('profile')
+		.from('sales_contact_submissions')
 		.select()
-		.eq('user_id', session.user.id);
+		.eq('id', submission_id);
 		
 	if (profile_result.count == 0) {
 		throw redirect(301, '/profile');
@@ -20,16 +21,7 @@ export const load = async (event) => {
 
 	let profile = profile_result.data[0];
 
-	// get the image groups for this profile
-	const imageResult = await _supabase
-		.from('image_group')
-		.select()
-		.eq('owner_id', session.user.id);
-	
-	let image_groups = imageResult.data;
-	
 	return {
-		profile: profile,
-		groups: image_groups
-	};
+		profile: profile
+	};	
 };

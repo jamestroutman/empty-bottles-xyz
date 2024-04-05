@@ -52,7 +52,7 @@
 				<button on:click="{logout}" class="text-lg tracking-tighter border-2 border-black p-1">Sign Out</button>
 			</div>
 		{:else}
-			<Button href="/login">Login or Sign-up</Button>
+			<Button href="/auth/login">Login or Sign-up</Button>
 		{/if}
 		<Button on:click={toggleMode} variant="outline" size="icon">
 			<Sun

@@ -16,13 +16,13 @@ npm create svelte@latest my-app
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you've created a project and installed dependencies with `pnpm install`, start a development server:
 
 ```bash
-npm run dev
+pnpm dev
 
 # or start the server and open the app in a new browser tab
-npm run dev -- --open
+npm dev -- --open
 ```
 
 ## Building
@@ -30,7 +30,7 @@ npm run dev -- --open
 To create a production version of your app:
 
 ```bash
-npm run build
+pnpm dev
 ```
 
 You can preview the production build with `npm run preview`.
@@ -53,4 +53,7 @@ After you have updated your migration with the SQL you can apply your migration 
 `supabase migration up`
 
 Finally you update you generated TS model with
-`supabase gen types typescript --local > "src/lib/server/schema.gen.ts"`
+`supabase gen types typescript --local > "src/lib/database/schema.gen.ts"`
+
+or with PNPM
+`pnpm gen-db`

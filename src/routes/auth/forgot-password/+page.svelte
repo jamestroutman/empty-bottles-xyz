@@ -26,7 +26,7 @@
 	}
 
 	function handleBackToLogin() {
-		goto("/login");
+		goto("/auth/login");
 	}
 </script>
 
@@ -65,7 +65,7 @@
 			</button>
 		</div>
 		<div class="mt-4 text-center text-sm">
-			<a class="underline" href="/login" on:click|preventDefault={handleBackToLogin}> Back to login </a>
+			<a class="underline" href="/auth/login" on:click|preventDefault={handleBackToLogin}> Back to login </a>
 		</div>
 	</div>
 </div>

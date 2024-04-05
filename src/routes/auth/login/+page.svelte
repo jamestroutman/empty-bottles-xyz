@@ -27,6 +27,7 @@
 			<p class="text-gray-500 dark:text-gray-400">
 				Enter your email below to login to your account
 			</p>
+			<a class="ml-auto inline-block text-sm underline" href="/auth/signup"> Need an Account? </a>
 		</div>
 		<div class="space-y-4">
 			<div class="space-y-2">

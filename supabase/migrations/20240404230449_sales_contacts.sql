@@ -9,8 +9,5 @@ create table sales_contact_submissions (
     company_name varchar(100),
     contact_status sales_contact_status,
     inserted_at timestamp default timezone('est' :: text, now()) not null,
-    updated_at timestamp default timezone('est' :: text, now()) not null,
+    updated_at timestamp default timezone('est' :: text, now()) not null
 );
-
-alter table
-    profile enable row level security;

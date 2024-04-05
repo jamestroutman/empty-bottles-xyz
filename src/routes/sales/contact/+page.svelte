@@ -7,16 +7,13 @@
     let { supabase } = data;
 
     // Form Data
-    let new_record: Tables<'sales_contact_submissions'> = {
+    let new_record = {
         company_name: '',
-        contact_status: '',
+        contact_status: 'new',
         email_address: '',
         first_name: '',
-        id: 0,
-        inserted_at: null,
         last_name: '',
         phone_number: '',
-        updated_at: null
     };
     
     // Submiit
