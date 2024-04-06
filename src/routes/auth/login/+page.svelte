@@ -1,7 +1,12 @@
-<script>
-	import { goto } from '$app/navigation';
+<script lang="ts">
+	import { Button } from "$lib/components/ui/button/index.js";
+	import { Input } from "$lib/components/ui/input/index.js";
+	import { Label } from "$lib/components/ui/label/index.js";
+
 	import placeholder from '$lib/assets/placeholder.svg';
 	import { toast } from 'svelte-sonner';
+	import { goto } from '$app/navigation';
+
 	export let data;
 	
 	let { supabase } = data;
@@ -9,71 +14,81 @@
 	let password = '';
 	let errorMessage = '';
 
+	async function handleGoogleLogin() {
+		//TODO: Google Auth
+		toast('Google Auth is coming soon');
+	}
+
 	async function handleLogin() {
+		if(email.length === 0){
+			errorMessage = 'Email is required';
+			return;
+		}
+
+		if(password.length === 0){
+			errorMessage = 'Password is required';
+			return;
+		}
+
 		const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 		if (error) {
 			errorMessage = error.message;
 		} else {
+			console.log(data);
 			toast("Signed In Successfully");
 			goto('/');
 		}
 	}
-</script>
-
-<div class="grid min-h-[600px] items-center gap-6 p-6 lg:grid-cols-2 xl:min-h-[800px]">
-	<div class="space-y-6">
-		<div class="space-y-2">
-			<h1 class="text-3xl font-bold">Login</h1>
-			<p class="text-gray-500 dark:text-gray-400">
-				Enter your email below to login to your account
-			</p>
-			<a class="ml-auto inline-block text-sm underline" href="/auth/signup"> Need an Account? </a>
+  </script>
+  
+  <div class="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
+	<div class="flex items-center justify-center py-12">
+	  <div class="mx-auto grid w-[350px] gap-6">
+		<div class="grid gap-2 text-center">
+		  <h1 class="text-3xl font-bold">Login</h1>
+		  <p class="text-balance text-muted-foreground">
+			Enter your email below to login to your account
+		  </p>
 		</div>
-		<div class="space-y-4">
-			<div class="space-y-2">
-				<label
-					class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-					for="email">Email</label
-				><input
-					class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-					id="email"
-					placeholder="Email"
-					required
-					type="email"
-					bind:value={email}
-				/>
+		<div class="grid gap-4">
+		  <div class="grid gap-2">
+			<Label for="email">Email</Label>
+			<Input id="email" 
+				   type="email" 
+				   bind:value={email}  
+				   placeholder="m@example.com" 
+				   required />
+		  </div>
+		  <div class="grid gap-2">
+			<div class="flex items-center">
+			  <Label for="password">Password</Label>
+			  <a href="/auth/forgot-password" class="ml-auto inline-block text-sm underline">
+				Forgot your password?
+			  </a>
 			</div>
-			<div class="space-y-2">
-				<div class="flex items-center">
-					<label
-						class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-						for="password">Password</label
-					><a class="ml-auto inline-block text-sm underline" href="/auth/forgot-password"> Forgot your password? </a>
-				</div>
-				<input
-					class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-					id="password"
-					placeholder="Password"
-					type="password"
-					bind:value={password}
-				/>
-			</div>
-			{#if errorMessage} <p class="text-red-500">{errorMessage}</p> {/if}
-			<button
-				class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full"
-				on:click={handleLogin}
-			>
-				Login
-			</button>
+			<Input id="password" 
+			       type="password"
+				   bind:value={password}
+				   required />
+		  </div>
+		  {#if errorMessage} <p class="text-red-500">{errorMessage}</p> {/if}
+		  <Button type="submit" class="w-full" on:click={handleLogin}>Login</Button>
+		  <Button variant="outline" class="w-full" on:click={handleGoogleLogin} >Login with Google</Button>
 		</div>
+		<div class="mt-4 text-center text-sm">
+		  Don&apos;t have an account?
+		  <a href="/auth/signup" class="underline"> Sign up </a>
+		</div>
+	  </div>
 	</div>
-	<div class="flex items-center justify-center">
-		<img
-			src={placeholder}
-			alt="Empty Bottles Logo"
-			width="500"
-			height="300"
-			class="w-full max-w-[500px] aspect-[4/3] object-cover"
-		/>
+	<div class="hidden bg-muted lg:block">
+	  <img
+		src="{placeholder}"
+		alt="placeholder"
+		width="1920"
+		height="1080"
+		class="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+	  />
 	</div>
-</div>
+  </div>
+  
