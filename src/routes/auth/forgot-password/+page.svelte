@@ -8,9 +8,7 @@
 	let email = '';
 	let errorMessage = '';
 	let successMessage = '';
-	
-	const dispatch = createEventDispatcher();
-	
+		
 	async function handleSubmit() {
 		try {
 			const { error } = await supabase.auth.resetPasswordForEmail(email);
