@@ -20,16 +20,7 @@ export const load = async (event) => {
 
 	let profile = profile_result.data[0];
 
-	// get the image groups for this profile
-	const imageResult = await _supabase
-		.from('image_group')
-		.select()
-		.eq('owner_id', session.user.id);
-	
-	let image_groups = imageResult.data;
-	
 	return {
 		profile: profile,
-		groups: image_groups
 	};
 };

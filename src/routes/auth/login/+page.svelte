@@ -36,7 +36,7 @@
 		} else {
 			console.log(data);
 			toast("Signed In Successfully");
-			goto('/');
+			goto('/dashboard');
 		}
 	}
   </script>

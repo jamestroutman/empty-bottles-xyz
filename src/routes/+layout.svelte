@@ -57,6 +57,11 @@
 					<a href="/auth/login">Login</a>
 				</div>
 				<Separator orientation="vertical" />
+			{:else}
+				<div>
+					<a href="/dashboard">Dashboard</a>
+				</div>
+				<Separator orientation="vertical" />
 			{/if}
 
 			<div>

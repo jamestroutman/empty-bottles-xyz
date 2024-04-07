@@ -1,4 +1,4 @@
-import { redirect } from '@sveltejs/kit';
+import { goto } from '$app/navigation';
 
 export const GET = async ({ url, locals: { supabase } }) => {
 	const code = url.searchParams.get('code');
@@ -9,5 +9,6 @@ export const GET = async ({ url, locals: { supabase } }) => {
 		await supabase.auth.exchangeCodeForSession(code);
 	}
 
-	throw redirect(303, '/');
+	goto('/dashboard');
+	return;
 };

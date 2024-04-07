@@ -1,6 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
-	import { createEventDispatcher } from 'svelte';
+	import { toast } from 'svelte-sonner';
 	export let data;
 	
 	let { supabase } = data;
@@ -10,13 +10,15 @@
 	let successMessage = '';
 		
 	async function handleSubmit() {
+		errorMessage = '';
+		successMessage = '';
 		try {
 			const { error } = await supabase.auth.resetPasswordForEmail(email);
 			if (error) {
 				errorMessage = error.message;
 			} else {
-				successMessage = 'Password reset email sent. Please check your inbox.';
-				email = '';
+				toast('Password reset email sent. Please check your inbox.');
+				goto('/auth/email-sent?email='+email);
 			}
 		} catch (error) {
 			errorMessage = 'An error occurred. Please try again.';
@@ -63,7 +65,7 @@
 			</button>
 		</div>
 		<div class="mt-4 text-center text-sm">
-			<a class="underline" href="/auth/login" on:click|preventDefault={handleBackToLogin}> Back to login </a>
+			<a class="underline" href="#" on:click|preventDefault={handleBackToLogin}> Back to login </a>
 		</div>
 	</div>
 </div>
