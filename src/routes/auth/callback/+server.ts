@@ -9,6 +9,6 @@ export const GET = async ({ url, locals: { supabase } }) => {
 		await supabase.auth.exchangeCodeForSession(code);
 	}
 
-	goto('/dashboard');
+	goto('/work');
 	return;
 };

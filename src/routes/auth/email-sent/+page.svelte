@@ -30,7 +30,7 @@
 			} else {
 				console.log(data);
 				toast('Account Verified');
-				goto('/dashboard');
+				goto('/work');
 			}
 		} catch (error) {
 			errorMessage = 'An error occurred. Please try again.';

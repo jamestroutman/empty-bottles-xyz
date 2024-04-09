@@ -58,7 +58,7 @@ export const actions = {
 			console.log(error);
 		}else{
 			toast('Profile Updated');
-			throw redirect(301, '/dashboard');
+			throw redirect(301, '/work');
 		}
 	}
 };

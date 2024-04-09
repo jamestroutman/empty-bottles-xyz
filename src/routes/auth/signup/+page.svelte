@@ -5,7 +5,6 @@
 	import * as Card from "$lib/components/ui/card/index.js";
 
 	import { goto } from '$app/navigation';
-	import placeholder from '$lib/assets/placeholder.svg';
 	import { toast } from 'svelte-sonner';
 	export let data;
 
@@ -82,84 +81,70 @@
 	}
   </script>
   
-  <div class="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
-	<div class="flex items-center justify-center py-12">  
-		  <Card.Root class="mx-auto max-w-sm">
-			<Card.Header>
-			  <Card.Title class="text-xl">Sign Up</Card.Title>
-			  <Card.Description>Enter your information to create an account</Card.Description>
-			</Card.Header>
-			<Card.Content>
-			  <div class="grid gap-4">
-				<div class="grid grid-cols-2 gap-4">
-				  <div class="grid gap-2">
-					<Label for="first-name">First name</Label>
-					<Input 
-						id="first-name" 
-						placeholder="Jose" 
-						bind:value={first_name}
-						required />
-				  </div>
-				  <div class="grid gap-2">
-					<Label for="last-name">Last name</Label>
-					<Input 
-						id="last-name" 
-						placeholder="Cuervo" 
-						bind:value={last_name}
-						required />
-				  </div>
-				</div>
-				<div class="grid gap-2">
-				  <Label for="email">Email</Label>
-				  <Input 
-				  	id="email" 
-					type="email" 
-					placeholder="m@example.com" 
-					bind:value={email}
-					required />
-				</div>
-				<div class="grid gap-2">
-				  <Label for="password">Password</Label>
-				  <Input 
-				  	id="password" 
-					type="password"
-					bind:value={password}
-					 />
-				</div>
-				<div class="grid gap-2">
-					<Label for="password">Password Confirmation</Label>
-					<Input 
-						id="password-confirmation" 
-					  type="password"
-					  bind:value={passwordConfirmation}
-					   />
-				  </div>
-				{#if errorMessage} <p class="text-red-500">{errorMessage}</p> {/if}
-				<Button 
-					type="submit"
-					on:click={handleSignUp}
-					class="w-full">Create an account</Button>
-				<Button 
-					variant="outline" 
-					on:click={handleGoogleSignUp}
-					class="w-full">Sign up with Google</Button>
-			  </div>
-			  <div class="mt-4 text-center text-sm">
-				Already have an account?
-				<a href="/auth/login" class="underline"> Sign in </a>
-			  </div>
-			</Card.Content>
-		  </Card.Root>
-		  
-	</div>
-	<div class="hidden bg-muted lg:block">
-	  <img
-		src="{placeholder}"
-		alt="placeholder"
-		width="1920"
-		height="1080"
-		class="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
-	  />
-	</div>
-  </div>
-  
+
+	<Card.Root class="mx-auto max-w-sm">
+	<Card.Header>
+		<Card.Title class="text-xl">Sign Up</Card.Title>
+		<Card.Description>Enter your information to create an account</Card.Description>
+	</Card.Header>
+	<Card.Content>
+		<div class="grid gap-4">
+		<div class="grid grid-cols-2 gap-4">
+			<div class="grid gap-2">
+			<Label for="first-name">First name</Label>
+			<Input 
+				id="first-name" 
+				placeholder="Jose" 
+				bind:value={first_name}
+				required />
+			</div>
+			<div class="grid gap-2">
+			<Label for="last-name">Last name</Label>
+			<Input 
+				id="last-name" 
+				placeholder="Cuervo" 
+				bind:value={last_name}
+				required />
+			</div>
+		</div>
+		<div class="grid gap-2">
+			<Label for="email">Email</Label>
+			<Input 
+			id="email" 
+			type="email" 
+			placeholder="m@example.com" 
+			bind:value={email}
+			required />
+		</div>
+		<div class="grid gap-2">
+			<Label for="password">Password</Label>
+			<Input 
+			id="password" 
+			type="password"
+			bind:value={password}
+				/>
+		</div>
+		<div class="grid gap-2">
+			<Label for="password">Password Confirmation</Label>
+			<Input 
+				id="password-confirmation" 
+				type="password"
+				bind:value={passwordConfirmation}
+				/>
+			</div>
+		{#if errorMessage} <p class="text-red-500">{errorMessage}</p> {/if}
+		<Button 
+			type="submit"
+			on:click={handleSignUp}
+			class="w-full">Create an account</Button>
+		<Button 
+			variant="outline" 
+			on:click={handleGoogleSignUp}
+			class="w-full">Sign up with Google</Button>
+		</div>
+		<div class="mt-4 text-center text-sm">
+		Already have an account?
+		<a href="/auth/login" class="underline"> Sign in </a>
+		</div>
+	</Card.Content>
+	</Card.Root>

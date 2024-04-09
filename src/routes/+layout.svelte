@@ -2,7 +2,7 @@
 	import placeholder_user from '$lib/assets/placeholder-user.jpg';
 	import "../app.pcss";
     import "../app.pcss";
-    import { invalidate } from '$app/navigation';
+    import { goto, invalidate } from '$app/navigation';
     import { onMount } from 'svelte';
 	import { Button } from "$lib/components/ui/button";
 	import { Toaster } from "$lib/components/ui/sonner";
@@ -10,10 +10,7 @@
 	import { toggleMode } from "mode-watcher";
 	import { Sun, Moon, PanelLeft, Package2, Home, ShoppingCart, Package, UsersRound, LineChart, Search } from 'lucide-svelte';
 	import { Separator } from "$lib/components/ui/separator";
-	import * as Breadcrumb from "$lib/components/ui/breadcrumb/index.js";
-	import * as Sheet from "$lib/components/ui/sheet/index.js";
 	import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
-	import { Input } from "$lib/components/ui/input";
 	
     export let data;
 
@@ -34,6 +31,7 @@
 
     async function logout() {
 		await supabase.auth.signOut();
+		goto('/');
 	}
 </script>
 
@@ -59,7 +57,7 @@
 				<Separator orientation="vertical" />
 			{:else}
 				<div>
-					<a href="/dashboard">Dashboard</a>
+					<a href="/work">Get to Work</a>
 				</div>
 				<Separator orientation="vertical" />
 			{/if}
@@ -87,7 +85,7 @@
 						<DropdownMenu.Label>My Account</DropdownMenu.Label>
 						<DropdownMenu.Separator />
 						<DropdownMenu.Item>Settings</DropdownMenu.Item>
-						<DropdownMenu.Item>Support</DropdownMenu.Item>
+						<DropdownMenu.Item>Profile</DropdownMenu.Item>
 						<DropdownMenu.Separator />
 						<DropdownMenu.Item on:click="{logout}">Logout</DropdownMenu.Item>
 						</DropdownMenu.Content>
